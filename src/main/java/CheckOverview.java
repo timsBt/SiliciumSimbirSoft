@@ -1,11 +1,11 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Overview {
+public class CheckOverview {
 
     private WebDriver driver;
 
-    public Overview(WebDriver driver) {
+    public CheckOverview(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -15,8 +15,5 @@ public class Overview {
         driver.findElement(finishInput).click();
         return new Complete(driver);
     }
-
-
-
 
 }

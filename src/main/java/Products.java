@@ -1,7 +1,5 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import java.util.List;
 
 public class Products {
 
@@ -11,12 +9,11 @@ public class Products {
         this.driver = driver;
     }
 
-    private By addCarts = By.cssSelector(".btn.btn_primary.btn_small.btn_inventory");
+    private By addCarts = By.id("add-to-cart-sauce-labs-backpack");
     private By cart =  By.cssSelector(".shopping_cart_link");
 
     public Products addToCart () {
-        List<WebElement> add = driver.findElements(addCarts);
-        add.get(0).click();
+        driver.findElement(addCarts).click();
         return this;
     }
 

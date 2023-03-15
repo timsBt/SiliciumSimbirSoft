@@ -11,8 +11,8 @@ public class CheckYourInfo {
 
     private By firsName = By.xpath("//input[@id='first-name']");
     private By lastName = By.xpath("//input[@id='last-name']");
-    private By postalcode = By.xpath("//input[@id='postal-code']");
-    private By continum = By.xpath("//input[@id='continue']");
+    private By postalCode = By.xpath("//input[@id='postal-code']");
+    private By continium = By.xpath("//input[@id='continue']");
 
     public CheckYourInfo typeFirstname (String name){
         driver.findElement(firsName).sendKeys(name);
@@ -25,19 +25,17 @@ public class CheckYourInfo {
     }
 
     public CheckYourInfo typePostalcode (String code){
-        driver.findElement(postalcode).sendKeys(code);
+        driver.findElement(postalCode).sendKeys(code);
         return this;
     }
 
-    public Overview yourOver (String firstname, String lastname, String code){
+    public CheckOverview yourOver (String firstname, String lastname, String code){
         this.typeFirstname(firstname);
         this.typeLastname(lastname);
         this.typePostalcode(code);
-        driver.findElement(continum).click();
-        return new Overview(driver);
+        driver.findElement(continium).click();
+        return new CheckOverview(driver);
 
     }
-
-
 
 }

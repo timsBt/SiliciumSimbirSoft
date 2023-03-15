@@ -1,41 +1,42 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.time.Duration;
 
 public class TestCase1 {
 
     private WebDriver driver;
-    private MainPage mainPage;
+    private LoginPage loginPage;
     private Products products;
     private YourCart yourCart;
     private CheckYourInfo checkYourInfo;
-    private Overview overview;
+    private CheckOverview checkOverview;
+    private Complete complete;
 
-   @Before
-    public void preStep()  {
-        System.setProperty("webserver.chrome.driver", "C:\\Tools\\ChromDraivers\\chromedriver.exe");
+    @Before
+    public void SetUp()  {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/");
-        mainPage = new MainPage(driver);
 
-        mainPage.register("standard_user","secret_sauce");
+        driver.get("https://www.saucedemo.com/");
+        loginPage = new LoginPage(driver);
+        loginPage.login("standard_user","secret_sauce");
+
         products = new Products(driver);
-        products.addToCart();
-        products.cartClick();
+        products.addToCart()
+                .cartClick();
 
         yourCart = new YourCart(driver);
-        yourCart.chekout();
+        yourCart.checkout();
 
         checkYourInfo = new CheckYourInfo(driver);
         checkYourInfo.yourOver("test", "test" , "test");
 
-        overview = new Overview(driver);
-        overview.finish();
-
+        checkOverview = new CheckOverview(driver);
+        checkOverview.finish();
     }
 
     @Test
@@ -45,17 +46,15 @@ public class TestCase1 {
     }
 
     @Test
-    public void expectedResult(){
-       Complete newComplete = new Complete(driver);
-       String message = newComplete.textCheck();
-       Assert.assertEquals("THANK YOU FOR YOUR ORDER", message);
+    public void thankYouMessage(){
+        complete = new Complete(driver);
+        String message = complete.textCheck();
+        Assert.assertEquals("THANK YOU FOR YOUR ORDER", message);
     }
 
     @After
     public void tearDown(){
-       driver.quit();
+        driver.quit();
     }
-
-
 
 }

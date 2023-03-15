@@ -11,11 +11,9 @@ public class YourCart {
 
     private By check = By.id("checkout");
 
-    public CheckYourInfo chekout (){
-       driver.findElement(check).click();
-       return new CheckYourInfo(driver);
+    public CheckYourInfo checkout (){
+        driver.findElement(check).click();
+        return new CheckYourInfo(driver);
     }
-
-
 
 }
