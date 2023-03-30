@@ -52,7 +52,7 @@ public class TestCase1 {
     public void thankYouMessage(){
         complete = new Complete(driver);
         String message = complete.textCheck();
-        Assertions.assertEquals("Thank you for your order!", message);
+        Assertions.assertEquals("THANK YOU FOR YOUR ORDER", message);
     }
 
     @AfterEach
