@@ -1,5 +1,8 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
@@ -14,7 +17,7 @@ public class TestCase1 {
     private CheckOverview checkOverview;
     private Complete complete;
 
-    @Before
+    @BeforeEach
     public void SetUp()  {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -42,17 +45,17 @@ public class TestCase1 {
     @Test
     public void redirect(){
         String url = driver.getCurrentUrl();
-        Assert.assertEquals("https://www.saucedemo.com/checkout-complete.html", url);
+        Assertions.assertEquals("https://www.saucedemo.com/checkout-complete.html", url);
     }
 
     @Test
     public void thankYouMessage(){
         complete = new Complete(driver);
         String message = complete.textCheck();
-        Assert.assertEquals("THANK YOU FOR YOUR ORDER", message);
+        Assertions.assertEquals("THANK YOU FOR YOUR ORDER", message);
     }
 
-    @After
+    @AfterEach
     public void tearDown(){
         driver.quit();
     }
