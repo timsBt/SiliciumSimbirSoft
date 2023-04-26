@@ -10,6 +10,7 @@ import java.time.Duration;
 public class TestCase2 {
 
     private WebDriver driver;
+
     private LoginPage loginPage;
 
 
