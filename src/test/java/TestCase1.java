@@ -41,8 +41,6 @@ public class TestCase1 {
 
         checkOverview = new CheckOverview(driver);
         checkOverview.finish();
-
-
     }
 
     @Test
@@ -53,7 +51,6 @@ public class TestCase1 {
 
     @Test
     public void thankYouMessage(){
-
         complete = new Complete(driver);
         String message = complete.textCheck();
         Assertions.assertEquals("THANK YOU FOR YOUR ORDER", message);
