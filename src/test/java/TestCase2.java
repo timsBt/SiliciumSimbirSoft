@@ -12,8 +12,6 @@ public class TestCase2 {
     private WebDriver driver;
     private LoginPage loginPage;
 
-
-
     @BeforeEach
     public void SetUuuup() {
         WebDriverManager.chromedriver().setup();
