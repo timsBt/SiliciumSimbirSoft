@@ -12,8 +12,9 @@ public class TestCase2 {
     private WebDriver driver;
     private LoginPage loginPage;
 
+
     @BeforeEach
-    public void SeyUp() {
+    public void SetUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

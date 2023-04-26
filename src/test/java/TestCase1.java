@@ -37,6 +37,7 @@ public class TestCase1 {
         yourCart = new YourCart(driver);
         yourCart.checkout();
 
+
         checkYourInfo = new CheckYourInfo(driver);
         checkYourInfo.yourOver("test", "test" , "test");
 
@@ -46,8 +47,9 @@ public class TestCase1 {
 
     }
 
+
     @Test
-    public void redirect(){
+    public void redirects(){
         String url = driver.getCurrentUrl();
         Assertions.assertEquals("https://www.saucedemo.com/checkout-complete.html", url);
     }
