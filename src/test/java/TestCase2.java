@@ -20,10 +20,12 @@ public class TestCase2 {
         driver.manage().window().maximize();
 
 
+
         driver.get("https://www.saucedemo.com/");
         loginPage = new LoginPage(driver);
         loginPage.invalidLogin("test","test");
     }
+
 
 
     @Test
