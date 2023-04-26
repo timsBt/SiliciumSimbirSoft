@@ -24,6 +24,7 @@ public class TestCase2 {
         loginPage.invalidLogin("test","test");
     }
 
+
     @Test
     public void errorMessage(){
         String error = loginPage.errorText();
