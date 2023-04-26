@@ -13,14 +13,17 @@ public class TestCase2 {
     private LoginPage loginPage;
 
 
+
     @BeforeEach
     public void SetUp() {
+
+    @BeforeEach
+    public void SeyUp() {
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-
-
 
         driver.get("https://www.saucedemo.com/");
         loginPage = new LoginPage(driver);
