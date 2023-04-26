@@ -36,21 +36,25 @@ public class TestCase1 {
         yourCart = new YourCart(driver);
         yourCart.checkout();
 
+
         checkYourInfo = new CheckYourInfo(driver);
         checkYourInfo.yourOver("test", "test" , "test");
 
         checkOverview = new CheckOverview(driver);
         checkOverview.finish();
+
     }
 
+
     @Test
-    public void redirect(){
+    public void redirects(){
         String url = driver.getCurrentUrl();
         Assertions.assertEquals("https://www.saucedemo.com/checkout-complete.html", url);
     }
 
     @Test
     public void thankYouMessage(){
+
         complete = new Complete(driver);
         String message = complete.textCheck();
         Assertions.assertEquals("THANK YOU FOR YOUR ORDER", message);
@@ -61,4 +65,8 @@ public class TestCase1 {
         driver.quit();
     }
 
+
 }
+
+
+

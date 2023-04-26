@@ -12,8 +12,14 @@ public class TestCase2 {
     private WebDriver driver;
     private LoginPage loginPage;
 
+
+
+    @BeforeEach
+    public void SetUp() {
+
     @BeforeEach
     public void SeyUp() {
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -23,6 +29,7 @@ public class TestCase2 {
         loginPage = new LoginPage(driver);
         loginPage.invalidLogin("test","test");
     }
+
 
 
     @Test
@@ -36,3 +43,5 @@ public class TestCase2 {
         driver.quit();
     }
 }
+
+
