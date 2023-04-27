@@ -19,7 +19,7 @@ public class TestCase1 {
     private Complete complete;
 
     @BeforeEach
-    public void SetUp()  {
+    public void SetUper()  {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
