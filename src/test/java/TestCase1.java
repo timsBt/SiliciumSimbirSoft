@@ -47,13 +47,13 @@ public class TestCase1 {
 
 
     @Test
-    public void redirects(){
+    public void redirects() {
         String url = driver.getCurrentUrl();
         Assertions.assertEquals("https://www.saucedemo.com/checkout-complete.html", url);
     }
 
     @Test
-    public void thankYouMessage(){
+    public void thankYouMessage() {
 
         complete = new Complete(driver);
         String message = complete.textCheck();
@@ -63,6 +63,7 @@ public class TestCase1 {
     @AfterEach
     public void tearDown(){
         driver.quit();
+
     }
 
 
