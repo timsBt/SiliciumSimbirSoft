@@ -61,7 +61,7 @@ public class TestCase1 {
     }
 
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
 
     }
