@@ -19,7 +19,7 @@ public class TestCase1 {
     private Complete complete;
 
     @BeforeEach
-    public void SetUper() {
+    public void SetUper()  {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -47,13 +47,13 @@ public class TestCase1 {
 
 
     @Test
-    public void redirects() {
+    public void redirects(){
         String url = driver.getCurrentUrl();
         Assertions.assertEquals("https://www.saucedemo.com/checkout-complete.html", url);
     }
 
     @Test
-    public void thankYouMessage() {
+    public void thankYouMessage(){
 
         complete = new Complete(driver);
         String message = complete.textCheck();
@@ -61,9 +61,8 @@ public class TestCase1 {
     }
 
     @AfterEach
-    public void tearDown() {
+    public void tearDown(){
         driver.quit();
-
     }
 
 
